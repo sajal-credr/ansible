@@ -40,7 +40,7 @@
       group: ubuntu
 
   - name: Cloning The Code From Git Repo
-    git: repo=git@github.com:CredR/Everest-platform.git dest=/opt/everest/sw accept_hostkey=yes
+    git: repo=ssh://git@github.com:CredR/Everest-platform.git dest=/opt/everest/sw accept_hostkey=yes
 
   - name: Installing PIP requirements
     pip:
@@ -49,4 +49,3 @@
   - name: Running the pyhton script
     script: /opt/everest/sw/Everest-platform/manage.py runserver 0.0.0.0:8001
 ...
-
