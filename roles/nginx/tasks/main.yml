@@ -1,7 +1,6 @@
 ---
 - hosts: testserver
   remote_user: root
-
   tasks:
   - name: Web Server Installation
     apt: 
@@ -13,7 +12,7 @@
       dest: /etc/nginx/nginx.conf
     notify:
     - restart nginx
-  - name: Ensure Webserver is running & boot enabled
+  - name: Ensure Webserver is running and boot enabled
     service: 
       name: nginx 
       state: started

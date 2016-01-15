@@ -1,0 +1,41 @@
+---
+- hosts: everest-app
+  remote_user: root
+
+  tasks:
+  - name: Update The Repositories
+    apt: update_cache=yes
+
+  - name: Install Pre-requisites
+    apt: name{{item}} state=present
+    with_items:
+    - git
+    - python-pip
+    - python-dev
+    - build-essential
+
+  - name: Creating Code Directory
+    file:
+      path: /opt/everest/sw/module1
+      state: directory
+      mode: 0755
+
+  - name: Creating Log Directory
+    file:
+      path: /opt/everest/var/log
+      state: directory
+      mode: 0755
+
+  - name: Cloning The Code From Git Repo
+    git: 
+      repo: <git-repo>
+      dest: /opt/everest/sw/module1
+
+  - name: Installing PIP requirements
+    pip:
+      requirements: /opt/everest/sw/module1/requirements.txt
+
+  - name: Running the pyhton script
+    script: /opt/everest/sw/module1/manage.py
+...
+
