@@ -32,6 +32,7 @@
     git: 
       repo: git@github.com:CredR/Everest-platform.git
       dest: /opt/everest/sw
+      accept_hostkey: yes
 
   - name: Installing PIP requirements
     pip:
