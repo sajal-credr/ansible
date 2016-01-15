@@ -1,2 +1,12 @@
 ---
 # tasks file for common
+- name: Upgrading the repositories
+  apt: update_cache=yes
+
+- name: Installing initial packages and Dependencies
+  apt: name={{item}} state=present
+  with_items:
+  - git
+  - vim
+  - htop
+  - iostat

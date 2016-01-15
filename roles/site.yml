@@ -1,0 +1,19 @@
+---
+- name: Common configuration for all hosts
+  hosts: all
+  remote_user: root
+
+  roles: common
+
+- name: Nginx configuration for Web Servers
+  hosts: testservers
+  remote_user: root
+
+  roles: nginx
+
+- name: Database configuration for DB Servers
+  hosts: testservers
+  remote_user: root
+
+  roles: db
+...
