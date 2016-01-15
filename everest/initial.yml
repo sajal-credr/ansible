@@ -40,11 +40,12 @@
       group: ubuntu
 
   - name: Cloning The Code From Git Repo
-    git: repo=ssh://git@github.com:CredR/Everest-platform.git 
-         dest: /opt/everest/sw 
-         accept_hostkey: yes
-         force: yes
-         sudo_user: root
+    git: 
+      repo=ssh://git@github.com:CredR/Everest-platform.git 
+      dest: /opt/everest/sw 
+      accept_hostkey: yes
+      force: yes
+      sudo_user: root
 
   - name: Installing PIP requirements
     pip:
