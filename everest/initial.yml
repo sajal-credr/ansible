@@ -1,5 +1,6 @@
 ---
 - hosts: everest-app
+
   remote_user: root
 
   tasks:
