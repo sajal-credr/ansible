@@ -31,11 +31,11 @@
   - name: Cloning The Code From Git Repo
     git: 
       repo: <git-repo>
-      dest: /opt/everest/sw/module1
+      dest: /opt/everest/sw
 
   - name: Installing PIP requirements
     pip:
-      requirements: /opt/everest/sw/module1/requirements.txt
+      requirements: /opt/everest/sw/Everest-platform/requirements.txt
 
   - name: Running the pyhton script
     script: /opt/everest/sw/module1/manage.py
