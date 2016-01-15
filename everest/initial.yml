@@ -16,6 +16,12 @@
     - python-dev
     - build-essential
 
+  - name: Changing opt Directory Ownership
+    file:
+      path: /opt
+      state: directory
+      owner: ubuntu
+
   - name: Creating Code Directory
     file:
       path: /opt/everest/sw
