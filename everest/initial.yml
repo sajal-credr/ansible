@@ -29,12 +29,16 @@
       path: /opt/everest/sw
       state: directory
       mode: 0755
+      owner: ubuntu
+      group: ubuntu
 
   - name: Creating Log Directory
     file:
       path: /opt/everest/var/log
       state: directory
       mode: 0755
+      owner: ubuntu
+      group: ubuntu
 
   - name: Cloning The Code From Git Repo
     git: 
