@@ -1,5 +1,5 @@
 ---
-- hosts: testserver
+- hosts: testservers
   remote_user: root
   tasks:
   - name: Web Server Installation
