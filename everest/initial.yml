@@ -47,7 +47,6 @@
     git: 
       repo: git@github.com:sajal-credr/ansible.git 
       accept_hostkey: yes
-      key_file: /home/ubuntu/key
       dest: /opt/everest/sw
       force: yes
 
