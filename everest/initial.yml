@@ -11,9 +11,13 @@
     apt: name={{item}} state=present
     with_items:
     - git
+    - idle-python3.4
     - python-pip
     - python-dev
     - build-essential
+
+  - name: Using Pyhton3.4 as Default
+    shell: echo "alias python=python3" >> .bashrc
 
   - name: Changing opt Directory Ownership
     file:
@@ -45,7 +49,6 @@
       dest: /opt/everest/sw 
       accept_hostkey: yes
       force: yes
-      sudo_user: root
 
   - name: Installing PIP requirements
     pip:
