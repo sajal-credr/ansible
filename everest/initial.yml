@@ -47,7 +47,6 @@
     git: 
       repo: ssh://git@github.com/CredR/Everest-platform.git 
       accept_hostkey: yes
-      key_file: /home/ubuntu/key
       dest: /opt/everest/sw
       force: yes
 
