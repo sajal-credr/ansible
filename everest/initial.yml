@@ -29,7 +29,7 @@
 
   - name: Creating Code Directory
     file:
-      path: /opt/everest/sw
+      path: /opt/everest/sw/Everest-platform
       state: directory
       mode: 0755
       owner: ubuntu
@@ -47,7 +47,7 @@
     git: 
       repo: git@github.com:CredR/Everest-platform.git 
       accept_hostkey: yes
-      dest: /opt/everest/sw
+      dest: /opt/everest/sw/Everest-platform
       force: yes
 
   - name: Installing PIP requirements
