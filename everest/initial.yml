@@ -46,8 +46,9 @@
   - name: Cloning The Code From Git Repo
     git: 
       repo: ssh://git@github.com:CredR/Everest-platform.git 
-      dest: /opt/everest/sw 
       accept_hostkey: yes
+      key_file: /root/.ssh/id_rsa.pub
+      dest: /opt/everest/sw 
       force: yes
 
   - name: Installing PIP requirements
