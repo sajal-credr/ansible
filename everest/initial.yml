@@ -5,6 +5,20 @@
 
   tasks:
 
+  - name: Update The Repositories
+    apt: update_cache=yes
+    sudo: yes
+
+  - name: Install Pre-requisites
+    apt: name={{item}} state=present
+    with_items:
+    - git
+    - idle-python3.4
+    - python-pip
+    - python-dev
+    - build-essential
+    sudo: yes
+
   - name: Using Pyhton3.4 as Default
     shell: echo "alias python=python3" >> .bashrc
 
