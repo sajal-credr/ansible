@@ -1,7 +1,7 @@
 ---
 - hosts: everest-app
 
-  remote_user: ubuntu
+  remote_user: root
 
   tasks:
   - name: Update The Repositories
