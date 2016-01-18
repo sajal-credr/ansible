@@ -62,6 +62,14 @@
       dest: /opt/everest/sw/Everest-platform
       force: yes
 
+  - name: Edit requirements file
+    copy:
+      src: /etc/ansible/everest/files/requirements.txt
+      dest: /opt/everest/sw/Everest-platform/requirements.txt
+      owner: ubuntu
+      group: ubuntu
+      mode: 0664
+
   - name: Installing PIP requirements
     pip:
       requirements: /opt/everest/sw/Everest-platform/requirements.txt
