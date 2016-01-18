@@ -37,6 +37,7 @@
       owner: ubuntu
       group: ubuntu
       recurse: yes
+      sudo: yes
 
   - name: Creating Code Directory
     file:
