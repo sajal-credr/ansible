@@ -74,5 +74,5 @@
       requirements: /opt/everest/sw/Everest-platform/requirements.txt
 
   - name: Running the pyhton script
-    script: /opt/everest/sw/Everest-platform/manage.py runserver 0.0.0.0:8001
+    command: /opt/everest/sw/Everest-platform/manage.py runserver 0.0.0.0:8001
 ...
