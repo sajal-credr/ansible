@@ -2,6 +2,7 @@
 - hosts: everest-app
 
   remote_user: ubuntu
+  sudo: yes
 
   tasks:
 
@@ -37,7 +38,6 @@
       owner: ubuntu
       group: ubuntu
       recurse: yes
-      sudo: yes
 
   - name: Creating Code Directory
     file:
