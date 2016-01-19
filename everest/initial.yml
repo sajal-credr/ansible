@@ -1,7 +1,7 @@
 ---
 - hosts: everest-app
-
   remote_user: ubuntu
+  sudo: yes
 
   tasks:
 
@@ -72,8 +72,7 @@
   - name: Installing PIP requirements
     pip:
       requirements: /opt/everest/sw/Everest-platform/requirements.txt
-      sudo: yes
 
   - name: Running the pyhton script
-    command: /opt/everest/sw/Everest-platform/manage.py runserver 0.0.0.0:8000
+    command: /opt/everest/sw/Everest-platform/manage.py runserver 0.0.0.0:8001
 ...
