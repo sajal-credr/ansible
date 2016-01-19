@@ -2,3 +2,4 @@ Django
 Pillow
 django-resized
 django-model-utils
+rest_framework
