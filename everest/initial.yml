@@ -54,7 +54,7 @@
       owner: ubuntu
       group: ubuntu
 
-  - name: Cloning The Code From Git Repo
+  - name: Pulling Latest Code From Git Repo
     git: 
       repo: git@github.com:CredR/Everest-platform.git 
       accept_hostkey: yes
@@ -74,5 +74,5 @@
       requirements: /opt/everest/sw/Everest-platform/requirements.txt
 
   - name: Running the pyhton script
-    command: /opt/everest/sw/Everest-platform/manage.py runserver 0.0.0.0:8001
+    command: /opt/everest/sw/Everest-platform/manage.py runserver 0.0.0.0:8000
 ...
