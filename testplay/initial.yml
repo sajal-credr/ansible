@@ -1,5 +1,5 @@
 ---
-- hosts: everest-app
+- hosts: testservers
   remote_user: ubuntu
   sudo: yes
 
