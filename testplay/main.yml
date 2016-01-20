@@ -1,0 +1,21 @@
+---
+- hosts: testservers
+  remote_user: ubuntu
+  sudo: yes
+
+  tasks:
+  - name: Putting SSH key files
+    copy:
+      src: /etc/ansible/keys/node_key
+      dest: /home/ubuntu/.ssh/node_key
+      owner: ubuntu
+      group: ubuntu
+      mode: 0600
+
+  - name: Putting SSH Public Key files
+    copy:
+      src: /etc/ansible/keys/node_key.pub
+      dest: /home/ubuntu/.ssh/node_key.pub
+      owner: ubuntu
+      group: ubuntu
+      mode: 0644
