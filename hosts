@@ -1,5 +1,5 @@
 [testservers]
-54.179.130.194	ansible_connection=ssh	ansible_ssh_user=ubuntu ansible_sudo=true
+54.169.159.203 ansible_user=ubuntu ansible_ssh_private_key_file=/etc/ansible/keys/credrTestkey.pem
 
 [everest-app]
 52.192.189.102
