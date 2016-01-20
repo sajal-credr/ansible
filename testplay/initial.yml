@@ -1,0 +1,94 @@
+---
+- hosts: everest-app
+  remote_user: ubuntu
+  sudo: yes
+
+  tasks:
+
+  - name: Putting SSH key files
+    copy:
+      src: /etc/ansible/keys/node_key
+      dest: /home/ubuntu/.ssh/node_key
+      owner: ubuntu
+      group: ubuntu
+      mode: 0600
+
+  - name: Putting SSH Public Key files
+    copy:
+      src: /etc/ansible/keys/node_key.pub
+      dest: /home/ubuntu/.ssh/node_key.pub
+      owner: ubuntu
+      group: ubuntu
+      mode: 0644
+
+  - name: Update The Repositories
+    apt: update_cache=yes
+    sudo: yes
+
+  - name: Install Pre-requisites
+    apt: name={{item}} state=present
+    with_items:
+    - git
+    - idle-python3.4
+    - python-pip
+    - python-dev
+    - build-essential
+    - python-setuptools
+    - python3-setuptools
+    - python-imaging
+    - python3-imaging
+    - libjpeg8 
+    - libjpeg62-dev 
+    - libfreetype6 
+    - libfreetype6-dev 
+    sudo: yes
+
+  - name: Using Pyhton3.4 as Default
+    shell: echo "alias python=python3" >> .bashrc
+
+  - name: Changing opt Directory Ownership
+    file:
+      path: /opt
+      state: directory
+      owner: ubuntu
+      group: ubuntu
+      recurse: yes
+
+  - name: Creating Code Directory
+    file:
+      path: /opt/everest/sw/Everest-platform
+      state: directory
+      mode: 0755
+      owner: ubuntu
+      group: ubuntu
+
+  - name: Creating Log Directory
+    file:
+      path: /opt/everest/var/log
+      state: directory
+      mode: 0755
+      owner: ubuntu
+      group: ubuntu
+
+  - name: Pulling Latest Code From Git Repo
+    git: 
+      repo: git@github.com:CredR/Everest-platform.git 
+      accept_hostkey: yes
+      dest: /opt/everest/sw/Everest-platform
+      force: yes
+
+  - name: Edit requirements file
+    copy:
+      src: /etc/ansible/testplay/files/requirements.txt
+      dest: /opt/everest/sw/Everest-platform/requirements.txt
+      owner: ubuntu
+      group: ubuntu
+      mode: 0664
+
+  - name: Installing PIP requirements
+    pip:
+      requirements: /opt/everest/sw/Everest-platform/requirements.txt
+
+  - name: Running the pyhton script
+    command: nohup /opt/everest/sw/Everest-platform/manage.py runserver 0.0.0.0:8001
+...

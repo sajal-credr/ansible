@@ -1,0 +1,7 @@
+Django
+Pillow
+markdown
+django-filter
+django-resized
+django-model-utils
+djangorestframework
